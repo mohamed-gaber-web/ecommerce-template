@@ -29,7 +29,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    // this.getAds();
+        // this.getAds();
    // this.router.navigate(['']);  //redirect other pages to homepage on browser refresh 
   }
 

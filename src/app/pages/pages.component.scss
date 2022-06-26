@@ -27,8 +27,8 @@
     font-size: 11px;
 }
 .logoImg{
-    width:35vmin;
-// max-height: 15vh;
+    width:32vmin;
+max-height: 32vh;
 }
 .main-Menu{
     margin-top: 2vh;
@@ -42,10 +42,10 @@
 }
 .main-Menu >li >a {
     text-decoration: none;
-    color: rgb(100, 97, 97);
+    color: #fff;
 }
 .main-Menu>li>a:hover{
-    color:teal;
+    color:#1e1963;
 }
 
 .sidenav{
@@ -57,7 +57,7 @@
 }
 .mat-toolbar.mat-lightblue {
     background: #E4EAEE;
-    color: teal;
+    color: #1e1963;
   }
 
 
@@ -97,13 +97,13 @@ background-color: white;
 }
 .subMenu>li>a{
 text-decoration: none;
-color: teal;
+color: #1e1963;
 font-size: large;
 font-weight: 600;
 cursor: pointer;
 }
 .subMenu>li>a:hover{
-color:rgb(58, 187, 187);
+color:#1e1963;
 }
 
 .subMenuItem{
@@ -152,7 +152,7 @@ color:rgb(58, 187, 187);
     line-height: 4vh;
 }
 .subMenuItem>ul>li>a:hover{
-    color:rgb(27, 163, 163);
+    color:#1e1963;
 }
 .subMenuItem>ul>li{
     width: 100%;
@@ -166,7 +166,6 @@ color:rgb(58, 187, 187);
 
 
 .main-categories{
-
     // background-color: rgb(95, 93, 93);
     height: fit-content;
     display: flexbox;
@@ -212,11 +211,11 @@ color:rgb(58, 187, 187);
 }
 .smart-homes>ul>li>a{
     text-decoration: none;
-    color: teal;
+    color: #1e1963;
 }
 .smart-homes>ul>li>a:hover{
     font-weight: 500; 
-      color:#2C74DF;
+      color:gray;
 }
 span{
     cursor: pointer;
@@ -246,7 +245,7 @@ span{
     color:white !important;
 }
 .continue-shopping{
-    background-color: teal !important;
+    background-color: #1e1963 !important;
     color:white !important;
 }
 .toggleMenu{
