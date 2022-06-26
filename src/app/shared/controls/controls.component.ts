@@ -25,6 +25,7 @@ export class ControlsComponent implements OnInit {
 
   ngOnInit() {
     // this.cartListStorage = JSON.parse(localStorage.getItem('cartList'));
+    localStorage.setItem('cartList', JSON.stringify([]));
     if(this.product){
       if(this.product.cartCount > 0){
         this.count = this.product.cartCount;
@@ -84,9 +85,9 @@ export class ControlsComponent implements OnInit {
   }
 
   public addToCart(product: Product){
-    let cartListStorage = JSON.parse(localStorage.getItem('cartList'));
+    this.cartListStorage = JSON.parse(localStorage.getItem('cartList'));
     // console.log(cartListStorage)
-    let currentProduct = cartListStorage.filter(item=>item.id == product.id)[0];
+    let currentProduct = this.cartListStorage.filter(item=>item.id == product.id)[0];
     
     if(currentProduct){
       if((currentProduct.cartCount + this.count) <= this.product.quantity){
