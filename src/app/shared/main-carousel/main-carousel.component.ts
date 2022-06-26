@@ -1,0 +1,54 @@
+import { Component, OnInit, Input } from '@angular/core';
+import { SwiperConfigInterface, SwiperPaginationInterface } from 'ngx-swiper-wrapper';
+import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
+
+@Component({
+  selector: 'app-main-carousel',
+  templateUrl: './main-carousel.component.html',
+  styleUrls: ['./main-carousel.component.scss'],
+  providers: [NgbCarouselConfig]  
+
+})
+export class MainCarouselComponent implements OnInit {
+  @Input('slides') slides: Array<any> = [];
+  showNavigationArrows = false;
+  showNavigationIndicators = false;
+  public config: SwiperConfigInterface = {};
+
+  private pagination: SwiperPaginationInterface = {
+    el: '.swiper-pagination',
+    clickable: true
+  };
+  
+  constructor(config: NgbCarouselConfig) {
+    config.showNavigationArrows = true;
+    config.showNavigationIndicators = true;
+    config.interval = 2500;
+    config.wrap = true;
+    config.pauseOnHover = true;
+
+   }
+
+  ngOnInit() { }
+
+  ngAfterViewInit(){
+    // this.config = {
+    //   slidesPerView: 1,
+    //   spaceBetween: 0,         
+    //   keyboard: true,
+    //   navigation: true,
+    //   pagination: this.pagination,
+    //   grabCursor: true,        
+    //   loop: false,
+    //   preloadImages: true,
+    //   lazy: true,     
+    //   autoplay: {
+    //     delay: 6000,
+    //     disableOnInteraction: false
+    //   },
+    //   speed: 500,
+    //   effect: "slide"
+    // }
+  }
+
+}

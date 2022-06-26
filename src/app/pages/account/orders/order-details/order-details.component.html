@@ -1,0 +1,39 @@
+<div class="mat-table orders-table">
+    <div class="mat-header-row">
+        <div class="mat-header-cell">quantity</div>
+        <div class="mat-header-cell">image</div>
+        <div class="mat-header-cell">phone</div>
+        <div class="mat-header-cell">Status</div>
+        <div class="mat-header-cell">price</div>
+        <div class="mat-header-cell">sku</div>
+        <div class="mat-header-cell">discount</div>
+    </div>
+    
+    <mat-spinner *ngIf='isLoading && !orderItems'></mat-spinner>
+
+    <div *ngFor="let order of orderItems" class="mat-row">
+      <div class="mat-cell">{{order.quantity}}</div>
+      <div class="mat-cell">
+        <img [src]="
+        storageService.correctImageUrl(order.imagePath)
+        ? order.imagePath
+        : '/assets/images/placeholder-img.jpg'
+        " 
+        class="swiper-lazy" />
+      </div>
+      <div class="mat-cell">{{order.phone}}</div>
+      <div class="mat-cell">{{order.status}}</div>
+      <div class="mat-cell">{{order.price}}</div> 
+      <div class="mat-cell">{{order.sku}}</div>
+      <div class="mat-cell" *ngIf='order.discount > 0'>{{order.discount}}</div>       
+    
+    </div>
+  </div>
+  
+
+<!-- <mat-paginator 
+      [length]="totalOrders"
+      [pageSize]="orderPerPage"
+      [pageSizeOptions]="pageOption"
+      (page)="onPageChanged($event)">
+</mat-paginator> -->

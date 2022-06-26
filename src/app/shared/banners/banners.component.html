@@ -1,0 +1,90 @@
+<div class="banners-container"   *ngIf="banners.length > 0">
+        <div class="banner a"  [ngStyle]="getBgImage(0)" (click)="exploreCategory(getBanner(0).id)">
+            <div class="info" fxLayoutAlign="center center" >
+                <div class="px-2"  fxLayout="column" fxLayoutAlign="center center">
+                    <!-- <h1 class="title">{{getBanner(0).title}}</h1> -->
+                    <h1 class="title">{{getBanner(0).productCategoryTranslations[0].name}} </h1>
+                    <!-- <h3 class="subtitle">Starts from : $600.000</h3> -->
+                    <!-- <a [routerLink]="['/products']" mat-raised-button color="primary" class="mt-2">Shop now</a> -->
+                </div> 
+            </div> 
+        </div>
+            <div class="banner b" (click)="exploreCategory(getBanner(3).id)" [ngStyle]="getBgImage(3)">
+                <div class="info" fxLayoutAlign="center center">
+                    <div class="px-2" fxLayout="column" fxLayoutAlign="end center">
+                      <!-- <h2 class="title">{{getBanner(1).title}}</h2> -->
+                      <h1 class="title">{{getBanner(3).productCategoryTranslations[0].name}} </h1>
+
+                      <h4 class="subtitle"></h4>
+                      <!-- <a [routerLink]="['/products']" mat-raised-button color="primary" class="mt-2">Shop now</a> -->
+                    </div> 
+                </div> 
+            </div>
+       <div class="banner c" [ngStyle]="getBgImage(5)" (click)="exploreCategory(getBanner(5).id)">
+        <div class="info" fxLayout="column" fxLayoutAlign="center center">
+            <div class="px-2" fxLayout="column" fxLayoutAlign="center center">
+              <!-- <h1 class="title">{{getBanner(5).title}}</h1> -->
+              <h1 class="title">{{getBanner(5).productCategoryTranslations[0].name}} </h1>
+
+              <!-- <h3 class="subtitle"></h3> -->
+              <!-- <a [routerLink]="['/products']" mat-raised-button color="primary" class="mt-2">Shop now</a> -->
+            </div>
+        </div> 
+    </div>
+
+            <div class="banner d"  [ngStyle]="getBgImage(2)" (click)="exploreCategory(getBanner(2).id)">
+                <div class="info" fxLayoutAlign="center center">
+                    <div class="px-2" fxLayout="column" fxLayoutAlign="end center">
+                      <!-- <h2 class="title">{{getBanner(3).title}}</h2> -->
+                      <h1 class="title">{{getBanner(2).productCategoryTranslations[0].name}}</h1>
+
+                      <!-- <h4 class="subtitle"></h4> -->
+                      <!-- <a [routerLink]="['/products']" mat-raised-button color="primary" class="mt-2">Shop now</a> -->
+                    </div>                    
+                </div>
+            </div>
+            <div class="banner e"  [ngStyle]="getBgImage(4)" (click)="exploreCategory(getBanner(4).id)">
+                <div class="info" fxLayoutAlign="center center">
+                    <div class="px-2" fxLayout="column" fxLayoutAlign="end center">
+                      <!-- <h2 class="title">{{getBanner(4).title}}</h2> -->
+                      <h1 class="title">{{getBanner(4).productCategoryTranslations[0].name}}</h1>
+
+                      <!-- <h4 class="subtitle"></h4> -->
+                      <!-- <a [routerLink]="['/products']" mat-raised-button color="primary" class="mt-2">Shop now</a> -->
+                    </div>
+                </div> 
+            </div>
+   
+        <div class="banner f"  [ngStyle]="getBgImage(7)" (click)="exploreCategory(getBanner(7).id)">
+            <div class="info" fxLayoutAlign="center center">
+                <div class="px-2" fxLayout="column" fxLayoutAlign="center center">
+                    <!-- <h1 class="title">{{getBanner(0).title}}</h1> -->
+                    <h1 class="title">{{getBanner(7).productCategoryTranslations[0].name}}</h1>
+                    <!-- <h3 class="subtitle"></h3> -->
+                    <!-- <a [routerLink]="['/products']" mat-raised-button color="primary" class="mt-2">Shop now</a> -->
+                </div> 
+            </div> 
+        </div>
+
+            <div class="banner g"  [ngStyle]="getBgImage(6)" (click)="exploreCategory(getBanner(6).id)" >
+                <div class="info" fxLayoutAlign="center center">
+                    <div class="px-2" fxLayout="column" fxLayoutAlign="end center">
+                      <!-- <h2 class="title">{{getBanner(1).title}}</h2> -->
+                      <h1 class="title">{{getBanner(6).productCategoryTranslations[0].name}}</h1>
+                      <!-- <h4 class="subtitle"></h4> -->
+                      <!-- <a [routerLink]="['/products']" mat-raised-button color="primary" class="mt-2">Shop now</a> -->
+                    </div> 
+                </div> 
+            </div>
+</div>
+
+<div class="banners-container"   *ngIf="banners.length===0">
+ 
+<div class="banner a">...</div>
+<div class="banner b">...</div>
+<div class="banner c">...</div>
+<div class="banner d">...</div>
+<div class="banner e">...</div>
+<div class="banner f">...</div>
+<div class="banner g">...</div>
+</div>

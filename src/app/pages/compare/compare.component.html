@@ -1,0 +1,102 @@
+<mat-chip-list *ngIf="prdListAvailability===false">
+    <mat-chip color="warn" selected="true" style="background-color: #f8d7da; color:#842029" >YOU HAVE NO ITEMS TO COMPARE.</mat-chip>
+</mat-chip-list>
+
+<mat-card *ngIf="compareProductsList.length > 0" class="p-0">
+
+  <div class="mat-table compare-table">
+    <div class="mat-row">
+      <div class="mat-cell">
+          product image     
+      </div>
+      <div class="mat-cell" *ngFor="let product of compareProductsList">
+        <!-- <button mat-icon-button color="accent" class="remove" (click)="remove(product)"><mat-icon>close</mat-icon></button> -->
+        <img [src]="product.imagePath" alt="">
+      </div>
+    </div>
+
+    <div class="mat-row">
+      <div class="mat-cell">
+        name
+      </div>
+      <div class="mat-cell" *ngFor="let product of compareProductsList">
+        <a [routerLink]="['/products', product.id]" class="product-name">{{ product.productTranslations[0].title }}</a>
+      </div>
+    </div>
+
+    <div class="mat-row">
+      <div class="mat-cell">
+        price
+      </div>
+      <div class="mat-cell" *ngFor="let product of compareProductsList">
+        <b class="new-price">${{product.price | number : '1.2-2'}}</b>
+      </div>
+    </div>
+
+    <div class="mat-row">
+      <div class="mat-cell">
+        availability
+      </div>
+      <div class="mat-cell" *ngFor="let product of compareProductsList">
+          <b class="text-muted">{{ (product.quantity > 0) ? 'In stock':'Unavailable'}}</b>
+      </div>
+    </div>
+
+    <!-- <div class="mat-row">
+      <div class="mat-cell">
+        rating
+      </div>
+      <div class="mat-cell" *ngFor="let product of appService.Data.compareList">
+        <app-rating [ratingsCount]="product.ratingsCount" [ratingsValue]="product.ratingsValue"></app-rating>
+      </div>
+    </div> -->
+
+    <div class="mat-row">
+      <div class="mat-cell">
+        description
+      </div>
+      <div class="mat-cell" *ngFor="let product of compareProductsList">
+        <span class="text-muted lh">{{product.productTranslations[0].longDescription}}</span>
+      </div>
+    </div>
+
+    <!-- <div class="mat-row">
+      <div class="mat-cell">
+        color
+      </div>
+      <div class="mat-cell" *ngFor="let product of appService.Data.compareList">
+        <button mat-raised-button *ngFor="let color of product.color" [style.background]="color" class="color">&nbsp;</button>              
+      </div>
+    </div> -->
+
+    <!-- <div class="mat-row">
+      <div class="mat-cell">
+        size
+      </div>
+      <div class="mat-cell" *ngFor="let product of appService.Data.compareList">
+        <span *ngFor="let size of product.size" class="size">{{size}}</span>
+      </div>
+    </div> -->
+
+    <!-- <div class="mat-row">
+      <div class="mat-cell">
+        weight
+      </div>
+      <div class="mat-cell" *ngFor="let product of appService.Data.compareList">
+        <span *ngIf="product.weight">{{product.weight}} g</span>
+      </div>
+    </div> -->
+
+    <div class="mat-row">
+      <div class="mat-cell">
+        <button mat-raised-button class="clearAll" color="warn" (click)="clear()">Clear All</button>
+      </div>
+      <!-- <div class="mat-cell" *ngFor="let product of appService.Data.compareList">
+        <button mat-raised-button color="primary" class="add" (click)="addToCart(product)">
+          <mat-icon>shopping_cart</mat-icon>Add to cart</button>
+      </div> -->
+    </div>
+
+  </div>
+  
+</mat-card>

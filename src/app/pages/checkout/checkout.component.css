@@ -1,0 +1,42 @@
+.review-order-table.mat-table {
+  display: block;
+  overflow-x: auto;
+}
+
+.review-order-table.mat-table .mat-row, .review-order-table.mat-table .mat-header-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 48px;
+  padding: 0 24px;
+  min-width: 760px;
+}
+
+.review-order-table.mat-table .mat-row {
+  min-height: 60px;
+}
+
+.review-order-table.mat-table .mat-cell, .review-order-table.mat-table .mat-header-cell {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+.review-order-table.mat-table .mat-header-cell {
+  font-size: 14px;
+}
+
+.review-order-table.mat-table .mat-cell img {
+  width: 60px;
+}
+
+
+
+/*# sourceMappingURL=checkout.component.css.map */

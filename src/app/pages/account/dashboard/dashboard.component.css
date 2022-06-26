@@ -1,0 +1,20 @@
+.flex-wrapper {
+  margin: 8px -8px;
+}
+
+.flex-wrapper .col {
+  padding: 8px;
+}
+
+.account-card-content {
+  height: 134px;
+}
+
+.account-card-content a {
+  text-decoration: none;
+}
+
+.account-card-content a:hover {
+  text-decoration: underline;
+}
+/*# sourceMappingURL=dashboard.component.css.map */

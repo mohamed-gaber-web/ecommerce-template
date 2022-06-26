@@ -1,0 +1,63 @@
+<div class="loading-general" style="display: flex; gap: 1vw; overflow: hidden;"  *ngIf='loading'>
+    <div class="swiper-wrapper h-100" style="background-color: rgb(220, 216, 216); height:100vh; ">
+            <mat-spinner style="text-align: center; height: 30vh; "></mat-spinner>
+    </div>
+    <div class="swiper-wrapper h-100" style="background-color: rgb(220, 216, 216); height: 100vh;">
+        <mat-spinner style="text-align: center; height: 30vh;"></mat-spinner>
+    </div>
+    <div class="swiper-wrapper h-100" style="background-color: rgb(220, 216, 216); height: 100vh;">
+                    <mat-spinner style="text-align: center; height: 30vh;"></mat-spinner>
+    </div>
+    <div class="swiper-wrapper h-100" style="background-color: rgb(220, 216, 216); height: 100vh;">
+        <mat-spinner style="text-align: center; height: 30vh;"></mat-spinner>
+</div>
+<div class="swiper-wrapper h-100" style="background-color:rgb(220, 216, 216); height: 100vh;">
+    <mat-spinner style="text-align: center; height: 30vh;"></mat-spinner>
+</div>
+</div>
+<div *ngIf="products" class="swiper-container" [swiper]="config">
+    <div class="swiper-wrapper h-100">      
+        <div *ngFor="let product of products" class="swiper-slide">
+            <mat-card class="product-item">
+                <mat-chip-list *ngIf="product.discount">
+                    <mat-chip color="warn" selected="true">%{{product.discount}}
+                        OFF</mat-chip>
+                </mat-chip-list>
+                <!-- <div class="card-icon">
+                    <mat-icon (click)="createWhishlist(product.id)">favorite_border</mat-icon>
+                </div> -->
+                <a [routerLink]="['/products/product', product.id]" class="image-link">
+                    <img [src]="
+                    storageService.correctImageUrl(product.imagePath)
+                    ? product.imagePath
+                    : '/assets/images/placeholder-img.jpg'
+                    " 
+                    class="swiper-lazy" style="width: 100%;"/>
+                    <div class="swiper-lazy-preloader"></div>
+                </a>
+                    <!-- <h4 class="category text-muted"><a [routerLink]="['/products/products-category', product.productCategoryId]" routerLinkActive="router-link-active" > <span>{{ product.productCategory  }}</span> </a></h4>                                                                      -->
+
+                <a  [routerLink]="['/products/product', product.id]" class="title text-truncate">
+                   {{ product.productTranslations[0].title }}
+                </a>
+                <div fxLayout="row" fxLayoutAlign="space-between center" class="prices">
+                    <div fxLayout="row" fxLayoutAlign="space-around end" style="width: 100%;" >
+                        <p *ngIf="product?.discount > 0" class="new-price">${{product.priceAfterDiscount}}</p>
+                        <h4 style="cursor: default;" [ngClass]="(product?.discount <= 0) ? '' : 'old-price'">${{product?.price}}</h4>
+                    </div>
+                    
+                    <!-- <app-rating [ratingsCount]="product.ratingsCount" [ratingsValue]="5" [direction]="'column'"></app-rating> -->
+                </div>                            
+                <div class="divider"></div>
+                <div class="icons">
+                    <app-controls  [product]="product" (onOpenProductDialog)="openProductDialog(product)"></app-controls>
+                </div> 
+            </mat-card>
+        </div>
+    </div>
+    <button mat-mini-fab class="swiper-button-prev swipe-arrow"><mat-icon>keyboard_arrow_left</mat-icon></button>
+    <button mat-mini-fab class="swiper-button-next swipe-arrow"><mat-icon>keyboard_arrow_right</mat-icon></button> 
+</div>
+<div *ngIf="products===undefined || products!.length===0" class="noProducts">
+    <h4> No available products for this category! </h4>
+</div>

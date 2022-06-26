@@ -1,0 +1,17 @@
+<h1> Create Refund </h1>
+
+<form [formGroup]="refundFormGroup" (ngSubmit)="createRefundOrders()" enctype="multipart/form-data">
+    <!-- <mat-form-field appearance="fill">
+        <mat-label>Upload File</mat-label>
+        <input matInput>
+    </mat-form-field> -->
+    <label for="upload"> Upload file </label>
+    <input type="file" id="upload" (change)="onFileSelect($event)" />
+    <br /> <br />
+    <mat-form-field appearance="fill">
+        <mat-label>Reason</mat-label>
+        <textarea  matInput formControlName="reason"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Create Refund</button>
+</form>

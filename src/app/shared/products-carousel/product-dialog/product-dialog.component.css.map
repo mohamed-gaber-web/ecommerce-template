@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACI,eADW,CACX,qBAAqB,CAAA;EACjB,QAAQ,EAAE,kBAAkB;CAe/B;;AAjBL,AAGQ,eAHO,CACX,qBAAqB,CAEjB,gBAAgB,CAAA;EACZ,QAAQ,EAAE,QAAQ;CAMrB;;AAVT,AAKY,eALG,CACX,qBAAqB,CAEjB,gBAAgB,CAEZ,MAAM,CAAA;EACF,QAAQ,EAAE,QAAQ;EAClB,KAAK,EAAE,KAAK;EACZ,GAAG,EAAE,KAAK;CACb;;AATb,AAWQ,eAXO,CACX,qBAAqB,CAUjB,aAAa,CAAA;EACT,UAAU,EAAE,MAAM;CAIrB;;AAhBT,AAaY,eAbG,CACX,qBAAqB,CAUjB,aAAa,CAET,GAAG,CAAA;EACC,SAAS,EAAE,IAAI;CAClB",
+    "sources": [
+        "product-dialog.component.scss"
+    ],
+    "names": [],
+    "file": "product-dialog.component.css"
+}

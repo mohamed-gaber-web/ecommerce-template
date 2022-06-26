@@ -1,0 +1,87 @@
+.footer {
+  min-height: 100px;
+  padding: 16px 16px 0;
+}
+
+.footer .subscribe-block {
+  padding: 16px 0 32px 0;
+  text-align: center;
+}
+
+.footer .subscribe-block h1, .footer .subscribe-block h3 {
+  line-height: 1;
+}
+
+.footer .subscribe-block h1 {
+  margin-bottom: 6px;
+}
+
+.footer .subscribe-block .subscribe-search-form {
+  height: 50px;
+  padding: 0 16px;
+}
+
+.footer .subscribe-block .subscribe-search-form input[type=text] {
+  border: 0;
+  outline: none;
+  padding: 0 25px;
+  font-size: 16px;
+}
+
+.footer .subscribe-block .subscribe-search-form button {
+  font-size: 16px;
+  padding: 0 24px;
+  border-radius: 0;
+}
+
+.footer .col-title {
+  font-weight: 600;
+}
+
+.footer .mat-icon {
+  height: 21px;
+  line-height: 21px;
+}
+
+.footer .link {
+  text-decoration: none;
+}
+
+.footer .link:hover {
+  text-decoration: underline;
+}
+
+.footer .contact-information .mat-icon {
+  margin-right: 10px;
+}
+
+.footer .copyright {
+  font-size: 13px;
+  font-weight: 300;
+}
+
+@media (max-width: 575px) {
+  .footer .subscribe-block .subscribe-search-form {
+    height: 40px;
+    margin-top: 16px;
+  }
+  .footer .subscribe-block .subscribe-search-form input[type=text] {
+    padding: 0 8px;
+    font-size: 14px;
+  }
+  .footer .subscribe-block .subscribe-search-form button {
+    font-size: 14px;
+    padding: 0 16px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .footer .subscribe-block .subscribe-search-form {
+    margin-top: 16px;
+  }
+}
+
+.sebm-google-map-container {
+  height: 220px;
+}
+/*# sourceMappingURL=footer.component.css.map */

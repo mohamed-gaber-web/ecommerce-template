@@ -1,0 +1,77 @@
+<div class="top-menu">    
+<!-- 
+    <a mat-button [matMenuTriggerFor]="currencyMenu" #currencyMenuTrigger="matMenuTrigger">
+        {{currency}}<mat-icon class="mat-icon-sm caret">arrow_drop_down</mat-icon>
+    </a>
+    <mat-menu #currencyMenu="matMenu" [overlapTrigger]="false" xPosition="before" class="app-dropdown">
+        <span (mouseleave)="currencyMenuTrigger.closeMenu()">
+            <button mat-menu-item *ngFor="let cur of currencies" (click)="changeCurrency(cur)">
+                <span>{{cur}}</span>
+            </button>
+        </span>
+    </mat-menu> -->
+
+    <!-- <a mat-button [matMenuTriggerFor]="langMenu" #langMenuTrigger="matMenuTrigger">
+        <img [src]="flag.image" width="18">
+        <span fxShow="false" fxShow.gt-sm class="flag-menu-title">{{flag.name}}</span>
+        <mat-icon class="mat-icon-sm caret">arrow_drop_down</mat-icon>
+    </a>
+    <mat-menu #langMenu="matMenu" [overlapTrigger]="false" xPosition="before" class="app-dropdown">
+        <span (mouseleave)="langMenuTrigger.closeMenu()">
+            <button mat-menu-item *ngFor="let flag of flags" (click)="changeLang(flag)">
+                <img [src]="flag.image" width="18"> {{flag.name}}
+            </button>
+        </span>
+    </mat-menu> -->
+
+    <span fxShow="false" fxShow.gt-sm>
+        <a  mat-button routerLink="/compare"> 
+        <mat-icon class="mat-icon-sm">compare</mat-icon>
+            Compare <span *ngIf="settings.rtl">&rlm;</span>({{ appService.compareTotal.length <= 0 ? 0 :  appService.compareTotal.length}})</a>
+       
+            <a mat-button routerLink="/wishlist">
+                <mat-icon class="mat-icon-sm">favorite</mat-icon>
+                Wishlist <span *ngIf="settings.rtl">&rlm;</span>({{productService.wishlistProdutsLength}})</a>
+    </span>  
+
+
+<!-- Top Menu Dropdown Menu -->
+    <span *ngIf="auth.IsLoggedIn">
+        <a  mat-button [matMenuTriggerFor]="accountMenu" #accountMenuTrigger="matMenuTrigger">
+            <mat-icon class="mat-icon-sm account-icon">person</mat-icon> <span fxShow="false" fxShow.gt-sm>{{ 'account' | translate }}</span> <mat-icon class="mat-icon-sm caret">arrow_drop_down</mat-icon>
+        </a>
+        <mat-menu #accountMenu="matMenu" [overlapTrigger]="false" xPosition="before" class="app-dropdown account">
+            <span (mouseleave)="accountMenuTrigger.closeMenu()">
+                <div style="cursor: pointer;" fxLayout="row" fxLayoutAlign="space-around center" class="user-info" routerLink="/account">                   
+                    <img src="assets/images/others/user.jpg" alt="user-image" width="50">
+                    <p>{{ auth.getUser().FirstName }} <br> <small>{{ auth.getUser().LastName }} <span *ngIf="settings.rtl">&rlm;</span></small></p>
+                </div>
+                <a mat-menu-item routerLink="/compare" fxHide="false" fxHide.gt-sm>
+                    <mat-icon class="mat-icon-sm">compare</mat-icon>
+                    <span>Compare <span *ngIf="settings.rtl">&rlm;</span>({{appService.Data.compareList.length}})</span> 
+                </a>
+                <a mat-menu-item routerLink="/wishlist" fxHide="false" fxHide.gt-sm>
+                    <mat-icon class="mat-icon-sm">favorite</mat-icon>
+                    <span>Wishlist <span *ngIf="settings.rtl">&rlm;</span>({{appService.Data.wishList.length}})</span>
+                </a>
+                <a mat-menu-item routerLink="/account"> 
+                    <mat-icon class="mat-icon-sm">help</mat-icon>
+                    <span>{{ 'help' | translate }}</span> 
+                </a>
+                <div class="divider"></div>
+                <a mat-menu-item > 
+                    <mat-icon class="mat-icon-sm">power_settings_new</mat-icon>
+                    <span (click)="signOut()">{{ 'sign-out' | translate }}</span> 
+                </a>
+            </span>
+        </mat-menu>
+</span>
+
+    <a *ngIf="!auth.IsLoggedIn" style="color: black;" mat-button routerLink="user/sign-in"> 
+        <mat-icon class="mat-icon-sm">person</mat-icon>
+        <span>{{ 'sign-in' | translate }}</span> 
+    </a>
+
+<!-- Top Menu Dropdown Menu -->
+
+</div>  

@@ -1,0 +1,156 @@
+// .main-categories{
+    
+//     background-color: rgb(95, 93, 93);
+//     height: fit-content;
+//     display: flex;
+//     justify-content: center;
+//     align-content: center;
+// }
+// .sub-main-categories{
+//     margin-top: 2vh;
+//     margin-bottom: 2vh;
+//     // height: 60vh;
+//     width: 30%;
+//     background-color: white;
+//     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif    ;
+//     color: rgb(18, 119, 119);
+//     font-size: x-large;
+//     display: flex;
+//     flex-direction: column;
+//     gap: 2vh;
+//     justify-content: center;
+//     align-items: center;
+//     min-height: fit-content;
+// }
+//     .smart-homes:first-child{
+//         padding-top: 10vh;
+//     }
+//     .smart-homes:last-child{
+//         padding-bottom: 10vh;
+//     }
+// .smart-homes{
+//     display: block;
+//     position: relative;
+//     justify-content: center;
+// }
+// .smart-homes>ul{
+//     list-style: none;
+//     font-size: large;
+//     margin-left: 0.5vw;
+//     width: 26.5vw;
+//     justify-self: center;
+// }
+// .smart-homes>ul>li>a{
+//     text-decoration: none;
+//     color: gray;
+// }
+// .smart-homes>ul>li>a:hover{
+//     font-weight: 500; 
+//       color:#2C74DF;
+// }
+// span{
+//     cursor: pointer;
+//     display: flex;
+//     justify-content: center;
+//     font-weight: 400;
+// }
+
+// .smart-homes>ul>li{
+//     border-top: 1px solid grey;
+//     display: flex;
+//     justify-content: center;
+// }
+// .smart-homes>ul:last-child{
+//     border-bottom: 1px solid gray;
+// }
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.categories-spans{
+    margin-top: 1vh;
+    width:100%;
+    background-color: rgb(245, 248, 249);
+    height:30vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1vw;
+    row-gap: 5vh;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    flex-grow: 1;
+    align-content: center;
+
+}
+.categories-spans>div{
+    width:8vw;
+    height: 8vw;
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    color: teal;
+    transition: all .2s ease-in-out;
+    display:flow-root;
+    
+}
+
+@media (max-width:800px) {
+    .categories-spans{
+        height: 20vh;
+    }
+    .categories-spans>div{
+        height:13vw;
+        width:13vw;
+        font-size: 0.7em;
+    }
+
+    
+}
+.categories-spans > div > img{
+    width: 80%;
+    height: 80%;
+    // object-fit:;
+    border: 1px solid teal;
+    border-radius: 50%;
+    transition: all .2s ease-in-out;
+}
+.categories-spans >div:hover{
+    transform: scale(1.1);
+
+}
+
+.categories-carousels{
+    margin-top: 4vh;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vh;
+}
+.category-carousel{
+    background-color:rgb(236, 241, 243);
+}
+.category-info{
+    text-align: center;
+     display: flex;
+     justify-content: space-between;
+     vertical-align: baseline;
+}
+.category-info>button{
+    background-color: teal;
+    color:white;
+    width:7.4rem;
+    border: 1px grey solid;
+    margin-right: 2vw;
+    transition: all .2s ease-in-out;
+    
+}
+.category-info>p{
+    font-size:1.2rem;
+    font-weight: 600;
+    margin-left: 2vw;
+}
+.category-info>button:hover{
+    transform: scale(1.1);
+}

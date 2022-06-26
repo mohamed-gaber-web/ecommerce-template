@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "controls.component.scss"
+    ],
+    "names": [],
+    "file": "controls.component.css"
+}

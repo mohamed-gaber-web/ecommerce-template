@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,iBAAiB,GAAG,iBAAiB,CAAC;EAClC,WAAW,EAAE,IAAI;CACpB",
+    "sources": [
+        "customer-signup.component.scss"
+    ],
+    "names": [],
+    "file": "customer-signup.component.css"
+}

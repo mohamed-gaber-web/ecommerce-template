@@ -1,0 +1,85 @@
+    <form [formGroup]="registerForm" (ngSubmit)="onRegisterFormSubmit(registerForm.value)" class="sign-up-form">
+        <h4 class="text-muted text-center">Sign Up </h4>
+        <p class="text-muted text-center snp   ">Already't have an account? <a routerLink="/user/sign-up">Sign In</a> </p>
+        <mat-form-field  appearance="outline" class="w-50 mt-2">
+            <mat-label>{{ 'firstName' | translate }}</mat-label>
+            <input matInput placeholder="{{ 'firstName' | translate }}" formControlName="FirstName" required>
+            <mat-error *ngIf="registerForm.controls.FirstName.errors?.required">{{ 'firstNameReq' | translate }}</mat-error>
+            <!-- <mat-error *ngIf="registerForm.controls.FirstName.hasError('minlength')">First Name isn't long enough, minimum of 3 characters</mat-error> -->
+        </mat-form-field>
+
+        <mat-form-field  appearance="outline" class="w-50 mt-2">
+            <mat-label>{{ 'lastName' | translate }}</mat-label>
+            <input matInput placeholder="{{ 'lastName' | translate }}" formControlName="LastName" required>
+            <mat-error *ngIf="registerForm.controls.LastName.errors?.required">{{'lastNameReq' | translate}}</mat-error>
+            <!-- <mat-error *ngIf="registerForm.controls.LastName.hasError('minlength')">Last Name isn't long enough, minimum of 3 characters</mat-error> -->
+        </mat-form-field>
+        <mat-form-field  appearance="outline" class="w-50 mt-1">
+            <mat-label>{{ 'email' | translate }}</mat-label>
+            <input matInput placeholder="{{ 'email' | translate }}" formControlName="email" required>
+            <mat-error *ngIf="registerForm.controls.email.errors?.required">{{ 'emailReq' | translate }}</mat-error>
+            <mat-error *ngIf="registerForm.controls.email.hasError('invalidEmail')">{{ 'emailErr' | translate }}</mat-error>
+        </mat-form-field>       
+        
+        <mat-form-field  appearance="outline" class="w-50 mt-1">
+            <mat-label>{{ 'phoneNumber' | translate }}</mat-label>
+            <input matInput placeholder="{{ 'phoneNumber' | translate }}" formControlName="PhoneNumber" minlength="11" required>
+            <mat-error *ngIf="registerForm.controls.PhoneNumber.errors?.required">{{ 'phoneReq' | translate }}</mat-error>
+            <mat-error *ngIf="registerForm.controls.PhoneNumber.hasError('minlength')">The phone number must be 12 numbers</mat-error>
+        </mat-form-field>
+
+        <mat-form-field  appearance="outline" class="w-50 mt-1">
+            <mat-label>{{ 'birthdate' | translate }}</mat-label>
+            <input type="date" matInput placeholder="{{ 'birthdate' | translate }}" formControlName="Birthdate"  required>
+            <mat-error *ngIf="registerForm.controls.Birthdate.errors?.required">{{ 'birthdayReq' | translate }}</mat-error>
+        </mat-form-field>
+
+        <mat-label>{{ 'gender' | translate }}</mat-label>
+        <br />
+        <mat-radio-group formControlName="Gender">
+        <mat-radio-button class="example-radio-button" [value]="0">{{ 'male' | translate }} </mat-radio-button>
+        
+        <mat-radio-button class="example-radio-button" [value]="1">{{ 'female' | translate }}</mat-radio-button>
+        <br /><br />
+        <!-- <mat-error *ngIf="registerForm.controls.Gender.errors?.required">
+            Gender Is Required
+        </mat-error> -->
+        </mat-radio-group>
+
+        <mat-form-field  appearance="outline" class="w-50 mt-1">
+            <mat-label>{{ 'password' | translate }}</mat-label>
+            <input [type]="hide ? 'password' : 'text'" matInput placeholder="{{ 'password' | translate }}" formControlName="password" type="password" minlength="6" required>
+            <mat-icon matSuffix (click)="hide = !hide" style="cursor: pointer;">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-error *ngIf="registerForm.controls.password.errors?.required">{{ 'passwordReq' | translate }}</mat-error>
+            <mat-error *ngIf="registerForm.controls.password.hasError('minlength')">{{ 'passMin' | translate }}</mat-error>
+        </mat-form-field> 
+        <mat-form-field  appearance="outline" class="w-50 mt-1">
+            <mat-label>{{ 'password-confirmation' | translate }}</mat-label>
+            <input [type]="hide ? 'password' : 'text'" matInput placeholder="{{ 'password-confirmation' | translate }}" formControlName="confirmPassword" type="password" required>
+            <mat-icon matSuffix (click)="hide = !hide" style="cursor: pointer;">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-error *ngIf="registerForm.controls.confirmPassword.errors?.required">{{ 'confirmPassReq' | translate }}</mat-error>
+            <mat-error *ngIf="registerForm.controls.confirmPassword.hasError('mismatchedPasswords')">{{ 'notMatch' | translate }}</mat-error>
+        </mat-form-field>
+        <div class="text-center mt-2">
+            <button mat-fab color="primary" class="mat-elevation-z6" 
+            (click)="onRegisterFormSubmit(registerForm.value)" [disabled]="isLoading || !registerForm.valid">
+                <mat-icon>person_add</mat-icon>
+            </button>
+        </div>
+    </form>
+<!-- 
+    <div fxFlex="100" fxFlex.gt-sm="50" class="p-2">
+        <h2 class="text-muted text-center">
+            {{ 'alreadyHaveAccount' | translate }}
+        </h2>
+        <div class="text-center mt-2">
+          <button
+            mat-fab
+            color="primary"
+            routerLink="/user/sign-in"
+            class="mat-elevation-z6"
+          >
+            <mat-icon>exit_to_app</mat-icon>
+          </button>
+        </div>
+</div> -->

@@ -1,0 +1,34 @@
+.zoom-dialog .mat-dialog-container {
+  overflow: visible !important;
+}
+
+.zoom-dialog .mat-dialog-container .controls {
+  position: relative;
+}
+
+.zoom-dialog .mat-dialog-container .controls button {
+  position: absolute;
+  top: -44px;
+}
+
+.zoom-dialog .mat-dialog-container .controls .zoom-in {
+  right: 44px;
+}
+
+.zoom-dialog .mat-dialog-container .controls .zoom-out {
+  right: 0;
+}
+
+.zoom-dialog .mat-dialog-container .controls .close {
+  right: -44px;
+}
+
+.zoom-dialog .mat-dialog-container .viewer {
+  width: 100%;
+  text-align: center;
+}
+
+.zoom-dialog .mat-dialog-container .viewer img {
+  max-width: 60%;
+}
+/*# sourceMappingURL=product-zoom.component.css.map */

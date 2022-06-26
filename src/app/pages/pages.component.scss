@@ -1,0 +1,255 @@
+.main{
+    min-height: 400px;
+    min-height: calc(100vh - 288px);
+    padding: 16px;
+    box-sizing: border-box;
+}
+.sidenav{
+    width: 250px;
+    padding: 8px 16px;
+    position: fixed;
+    .close{
+        margin-left: 178px;
+    }
+    .divider{
+        margin: 8px 0;
+    }
+}
+.cart-items-count{
+    position: absolute;
+    top: -3px;
+    left: 26px;
+    background: #f44336;
+    height: 18px;
+    width: 18px;
+    line-height: 18px;
+    border-radius: 50%;
+    font-size: 11px;
+}
+.logoImg{
+    width:35vmin;
+// max-height: 15vh;
+}
+.main-Menu{
+    margin-top: 2vh;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    gap: 5vw;
+    justify-content: space-between;
+    list-style: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.main-Menu >li >a {
+    text-decoration: none;
+    color: rgb(100, 97, 97);
+}
+.main-Menu>li>a:hover{
+    color:teal;
+}
+
+.sidenav{
+    background-color:lightblue !important ;
+}
+.search-form{
+    display: flex;
+    justify-content: center;
+}
+.mat-toolbar.mat-lightblue {
+    background: #E4EAEE;
+    color: teal;
+  }
+
+
+  
+   .subMenu{
+    z-index: 100;
+    position: absolute;
+    // top:8.5vh;
+    left:38vw;
+    width: 13vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    background-color:rgba(255, 255, 255, 0.912);
+    list-style: none;
+    border-radius: 5%;
+    transition: all 0.5s ease-in-out;
+}
+
+
+.subMenu::before{
+    content: '';
+background-color: white;
+    width: 2.5vw;
+    height: 3vh ;
+    position: absolute;
+    right: 52vw;
+    top: -1vh;
+}
+.subMenu>li{
+    margin-top: 4vh;
+}
+.subMenu>li:last-child{
+    margin-bottom: 2vh;
+}
+.subMenu>li>a{
+text-decoration: none;
+color: teal;
+font-size: large;
+font-weight: 600;
+cursor: pointer;
+}
+.subMenu>li>a:hover{
+color:rgb(58, 187, 187);
+}
+
+.subMenuItem{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+.subMenuItem>a{
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+}
+
+.subMenuItem:hover > ul{
+    display: flex;
+    flex-direction: column;
+}
+.arrowSpan{
+    font-size:x-large ;
+    font-weight:100;
+}
+.subMenuItem:hover > a > span{
+    transform: rotate(180deg);
+}
+.subMenuItem:hover>a {
+    text-align: center;
+    justify-self: center;
+}
+.subMenuItem>ul{
+    // position: absolute;
+    // padding-top: 2vh;
+    display: none;
+    padding-left: 0vw;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+.subMenuItem>ul>li>a{
+    // text-decoration:underline;
+    color:rgb(97, 94, 94);
+    font-size: 0.9rem;
+    line-height: 4vh;
+}
+.subMenuItem>ul>li>a:hover{
+    color:rgb(27, 163, 163);
+}
+.subMenuItem>ul>li{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid black;
+}
+.subMenuItem>ul>li:first-child{
+    border-top :2px solid black;
+}
+
+
+.main-categories{
+
+    // background-color: rgb(95, 93, 93);
+    height: fit-content;
+    display: flexbox;
+    justify-content: center;
+    align-content: center;
+}
+.sub-main-categories{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    width: 100%;
+    background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif    ;
+    color: rgb(18, 119, 119);
+    font-size: x-large;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    justify-content: center;
+    align-items: center;
+    min-height: fit-content;
+}
+    .smart-homes:first-child{
+        margin-top: 10vh;
+    }
+    .smart-homes:last-child{
+        margin-bottom: 10vh;
+    }
+.smart-homes{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+}
+.smart-homes>ul{
+    position: relative;
+    list-style: none;
+    font-size: large;
+    margin-left: 0.5vw;
+    // width: 26.5vw;
+    width: 100%;
+    justify-self: center;
+    justify-content: center;
+}
+.smart-homes>ul>li>a{
+    text-decoration: none;
+    color: teal;
+}
+.smart-homes>ul>li>a:hover{
+    font-weight: 500; 
+      color:#2C74DF;
+}
+span{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+}
+
+.smart-homes>ul>li{
+    border-top: 1px solid grey;
+    display: flex;
+    justify-content: center;
+}
+.smart-homes>ul:last-child{
+    border-bottom: 1px solid gray;
+}
+.teal{
+    color:teal;
+}
+.bg-teal{
+    background-color: teal;
+    color:white !important;
+}
+
+.remove-cart{
+    background-color: #E2B36F !important;
+    color:white !important;
+}
+.continue-shopping{
+    background-color: teal !important;
+    color:white !important;
+}
+.toggleMenu{
+    width:50%;
+    justify-content: flex-end;
+}

@@ -1,0 +1,163 @@
+<mat-horizontal-stepper #horizontalStepper linear="true" class="mat-elevation-z2" fxShow="true" fxShow.gt-sm>
+  <mat-step [stepControl]="addressForm" label="Billing address">
+    <form [formGroup]="addressForm">
+      <mat-spinner *ngIf='isLoading'></mat-spinner>     
+      <mat-radio-group formControlName="address" fxLayout="column" fxLayoutAlign="center" required name="address">
+        <mat-radio-button (change)="fillAddress(addr)" *ngFor="let addr of addressList" color="primary" [value]="addr" class="mt-1"><b> 
+          {{ addr.streetName + ' floor ' + addr.floorNumber + ', apt '  + addr.apartmentNumber + ' , ' + addr.area + ', ' + addr.cityName}} </b>  
+          <button mat-stroked-button color="warn" (click)="removeAddress(addr.id)"> Remove </button> </mat-radio-button>
+        <!-- <mat-error *ngIf="addressForm.controls.address.errors?.required">address is required</mat-error> -->
+      </mat-radio-group>
+    </form>
+    <div class="container-form mt-4">
+      <div class="btn-save-address">
+        <button type="button" (click)="openDialog()" mat-raised-button color="primary">Add Address</button>
+      </div>
+    </div>
+
+  
+
+    <div fxLayout="row" fxLayoutAlign="center center" class="mt-2 p-1"> 
+      <button [disabled]='addressForm.invalid' mat-mini-fab matStepperNext color="primary" matTooltip="Next" matTooltipPosition="after"><mat-icon>navigate_next</mat-icon></button>        
+    </div>
+  </mat-step>
+
+
+
+  <mat-step [stepControl]="deliveryForm" label="Payment method">
+    <form [formGroup]="deliveryForm" class="p-2">
+      
+      <mat-radio-group formControlName="deliveryMethod" fxLayout="column" fxLayoutAlign="center" name="methods" required>
+        
+        <mat-radio-button color="primary" value="0" class="mt-1" ><b>Cash On Delivery</b></mat-radio-button>
+        <mat-radio-button color="primary" value="1" class="mt-1" ><b>Payment Online</b></mat-radio-button>
+        <!-- <mat-error *ngIf="deliveryForm.controls.deliveryMethod.errors?.required">{{ 'methods is required' }}</mat-error> -->
+      
+      </mat-radio-group> 
+
+    </form>
+    <div fxLayout="row" fxLayoutAlign="center center" class="mt-2 p-1"> 
+      <button [disabled]='deliveryForm.invalid'  mat-mini-fab matStepperPrevious color="primary" matTooltip="Back" matTooltipPosition="before" class="mr-1" ><mat-icon>navigate_before</mat-icon></button>
+      <button [disabled]='deliveryForm.invalid' mat-mini-fab matStepperNext color="primary" matTooltip="Next" matTooltipPosition="after"><mat-icon>navigate_next</mat-icon></button>
+    </div>
+  </mat-step>
+
+
+  <mat-step label="Review Order">    
+    <div fxLayout="row wrap">
+      <div fxFlex="100" class="p-1">
+        <h3 class="text-muted">Shopping Cart</h3>
+        <div class="divider"></div>
+        <div class="mat-table review-order-table">
+          <div class="mat-header-row">
+            <div class="mat-header-cell">Product Image</div>
+            <div class="mat-header-cell">Name</div>
+            <!-- <div class="mat-header-cell">Price</div> -->
+            <div class="mat-header-cell">Price</div>       
+            <div class="mat-header-cell">Quantity</div>
+            <div class="mat-header-cell">Total</div>
+          </div>
+          <div *ngIf='appService.Data.cartList.length > 0'>
+            <div *ngFor="let product of appService.Data.cartList" class="mat-row">
+              <div class="mat-cell"><img [src]="product.imagePath"></div>
+              <div class="mat-cell">{{product.productTranslations[0].title}}</div>
+              <!-- <div class="mat-cell">${{ product.price | number : '1.2-2'}}</div>  -->
+              <div class="mat-cell">${{product.discount ? product.price - product.discount : product.price | number : '1.2-2'}}</div>      
+              <div class="mat-cell text-muted"> {{product.cartCount}} </div>
+              <div class="mat-cell">${{ product.discount ? product.price - product.discount*product.cartCount : product.price*product.cartCount | number : '1.2-2'}}</div>
+            </div>
+          </div>
+          <div *ngIf='appService.Data.cartList.length <= 0' class='alert-danger'> Please Select Products </div>
+        </div>
+      </div> 
+    </div>
+    <div fxLayout="row wrap"  *ngIf='addressFilInput'>
+      <div fxFlex="100" class="p-1">
+        <h3 class="text-muted mt-2">Billing information</h3>
+        <div class="divider"></div>
+      </div>
+      <div fxLayout="column" fxFlex="100" fxFlex.gt-sm="25" class="p-1">
+        <p class="text-muted">Name:</p>
+        <p>{{addressFilInput.firstName}} {{addressFilInput.lastName}}</p>
+      </div>
+      <div fxLayout="column" fxFlex="100" fxFlex.gt-sm="25" class="p-1">
+        <p class="text-muted">Phone:</p>
+        <p>{{addressFilInput.phone}}</p>
+      </div>
+      <div fxLayout="column" fxFlex="100" fxFlex.gt-sm="25" class="p-1">
+        <p class="text-muted">Landline:</p>
+        <p>{{addressFilInput.landline}}</p>
+      </div>
+      <div fxLayout="column" fxFlex="100" fxFlex.gt-sm="25" class="p-1">
+        <p class="text-muted">City:</p>
+        <p>{{addressFilInput.cityName}}</p>
+      </div>
+      <div fxLayout="column" fxFlex="100" fxFlex.gt-sm="25" class="p-1">
+        <p class="text-muted">Area:</p>
+        <p>{{addressFilInput.area}}</p>
+      </div>
+      <div fxLayout="column" fxFlex="100" fxFlex.gt-sm="25" class="p-1">
+        <p class="text-muted">Street:</p>
+        <p>{{addressFilInput.streetName}}</p>
+      </div>
+      <div fxLayout="column" fxFlex="100" fxFlex.gt-sm="25" class="p-1">
+        <p class="text-muted">buildingName:</p>
+        <p>{{addressFilInput.buildingName}}</p>
+      </div>
+      <div fxLayout="column" fxFlex="100" fxFlex.gt-sm="25" class="p-1">
+        <p class="text-muted">Floor Number:</p>
+        <p>{{addressFilInput.floorNumber}}</p>
+      </div>
+      <div fxLayout="column" fxFlex="100" fxFlex.gt-sm="25" class="p-1">
+        <p class="text-muted">Apartment Number:</p>
+        <p>{{addressFilInput.apartmentNumber}}</p>
+      </div>
+      <div fxLayout="column" fxFlex="100" fxFlex.gt-sm="25" class="p-1">
+        <p class="text-muted">note:</p>
+        <p>{{addressFilInput.note}}</p>
+      </div>
+
+    </div>
+    <div fxLayout="row">
+      <div fxFlex="100" class="p-1">
+        <h3 class="text-muted mt-2">Delivery information</h3>
+        <div class="divider"></div>
+        <p class="py-1"> Payment Method:  <span class="text-muted">
+          {{deliveryForm.value.deliveryMethod == 0 ? 'Cash On Delivery' : 'Payment Online'}}
+        </span></p>
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center center" class="p-1"> 
+       <h2><span class="text-muted mr-1">Total Price:</span><span>${{grandTotal | number : '1.2-2'}}</span></h2>    
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center" class="mt-2 p-1"> 
+      <button mat-mini-fab matStepperPrevious color="primary" matTooltip="Back" matTooltipPosition="before" class="mr-1"><mat-icon>navigate_before</mat-icon></button>
+      <button mat-raised-button matStepperNext color="primary" [disabled]='appService.Data.cartList.length <= 0' (click)="placeOrder()">Place order now</button>       
+    </div>     
+  </mat-step>
+
+  <!-- 
+  <mat-step label="Confirmation" *ngIf='+this.deliveryForm.value.deliveryMethod === 1 '>
+    <div fxLayout="column" fxLayoutAlign="center center" class="p-2 text-center"> 
+       <mat-spinner *ngIf='isLoading'></mat-spinner> 
+      <iframe [src]="source | sanitizeHtml" height="1000px" width="90%" title="Payment"></iframe>
+    </div> 
+  </mat-step>
+  -->
+
+  <mat-step label="Confirmation" *ngIf='+this.deliveryForm.value.deliveryMethod === 0 '>
+    <div fxLayout="column" fxLayoutAlign="center center" class="p-2 text-center"> 
+      <button mat-fab color="primary"><mat-icon>check</mat-icon></button>
+      <h2 class="py-2">Congratulation! Your order has been processed</h2>
+      <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus dolor ante, ut luctus mi faucibus a. Ut eu tincidunt neque. Proin porttitor id ligula id placerat. Integer nec nulla varius, dapibus libero quis, semper eros. Aliquam erat volutpat. Proin volutpat tellus vel purus interdum euismod.</p>
+    </div> 
+    
+    <div fxLayout="row" fxLayoutAlign="center center" class="mt-2 p-1"> 
+      <a (click)="returnToHome()" mat-raised-button color="primary">Return to Shop</a>       
+    </div>
+     
+  </mat-step>
+
+</mat-horizontal-stepper>
+

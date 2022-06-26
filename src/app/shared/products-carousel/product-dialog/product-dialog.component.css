@@ -1,0 +1,22 @@
+.product-dialog .mat-dialog-container {
+  overflow: visible !important;
+}
+
+.product-dialog .mat-dialog-container .close-btn-outer {
+  position: relative;
+}
+
+.product-dialog .mat-dialog-container .close-btn-outer button {
+  position: absolute;
+  right: -44px;
+  top: -44px;
+}
+
+.product-dialog .mat-dialog-container .swiper-slide {
+  text-align: center;
+}
+
+.product-dialog .mat-dialog-container .swiper-slide img {
+  max-width: 100%;
+}
+/*# sourceMappingURL=product-dialog.component.css.map */

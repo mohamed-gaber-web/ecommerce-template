@@ -1,0 +1,44 @@
+<mat-chip-list *ngIf="productService.whishlistProducts == 0">
+  <mat-chip color="warn" selected="true">YOU HAVE NO ITEMS IN WISH LIST.</mat-chip>
+</mat-chip-list>
+
+<mat-card *ngIf="productService.whishlistProducts?.length > 0" class="p-0">
+
+<div class="mat-table wishlist-table">
+  <div class="mat-header-row">
+    <div class="mat-header-cell mat-Display">Product</div>
+    <div class="mat-header-cell mat-Display">Name</div>
+    <div class="mat-header-cell mat-Display">Price</div>
+    <div class="mat-header-cell mat-Display">Availability</div>
+    <div class="mat-header-cell mat-Display">Quantity</div>
+    <div class="mat-header-cell">
+      <!-- <div class="px-1">
+        <button mat-raised-button color="warn" (click)="clear()">Clear All</button>
+      </div> -->
+    </div>
+  </div>
+  <div *ngFor="let product of productService.whishlistProducts" class="mat-row">
+    <div class="mat-cell mat-Display"><img [src]="product.imagePath"></div>
+    <!-- ['/products', product.id, product.title] -->
+    <div class="mat-cell wh-product-cell mat-Display"><a [routerLink]="" class="product-name">{{product.title}}</a></div>
+    <div class="mat-cell mat-Display">${{product.price | number : '1.2-2'}}</div>
+    <div class="mat-cell mat-Display">{{ (product.quantity > 0) ? 'In stock':'Unavailable'}}</div>
+    <div class="mat-cell text-muted mat-Display">
+      <!-- <app-controls [product]="product" [type]="'wish'" (onQuantityChange)="getQuantity($event)"></app-controls> -->
+      <div class="mat-cell">{{product.quantity}}</div>
+    </div>
+    <div class="mat-cell">
+      <div class="p-1">          
+        <!-- <button mat-mini-fab color="primary" (click)="addToCart(product)" matTooltip="Add to cart">
+            <mat-icon>add_shopping_cart</mat-icon>
+        </button> -->
+        <button mat-mini-fab color="warn" type="button" (click)="removeWhishlist(product.productId)" matTooltip="Clear" class="remove">
+            <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+</mat-card>

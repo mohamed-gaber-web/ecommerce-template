@@ -1,0 +1,38 @@
+.brands-carousel {
+  background: rgba(0, 0, 0, 0.03);
+  position: relative;
+  padding: 8px 0;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.brands-carousel .swiper-container {
+  padding: 8px 2px;
+  margin: 0 14px;
+}
+
+.brands-carousel .swiper-container .brand-item {
+  height: 80px;
+  padding: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.brands-carousel .swiper-container .brand-item img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+}
+
+.brands-carousel .swiper-button-prev {
+  left: -10px;
+}
+
+.brands-carousel .swiper-button-next {
+  right: -10px;
+}
+/*# sourceMappingURL=brands-carousel.component.css.map */

@@ -1,0 +1,43 @@
+<!-- <div class="main-slider"> -->
+
+  <!-- <div class="swiper-container h-100" [swiper]="config">
+    <div class="swiper-wrapper h-100">      
+      <div *ngFor="let slide of slides" class="swiper-slide">
+        <div [attr.data-background]="slide.imagePath" class="slide-item swiper-lazy">
+            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+            <div class="mask"></div>  
+            <div fxLayout="column" fxLayoutAlign="center center" class="content">
+              <h1>{{slide?.sliderTranslations[0].title}} </h1>
+              <h3>{{slide?.sliderTranslations[0].subTitle}}</h3>
+              <!-- <button mat-raised-button color="primary">Shop now</button> -->
+            <!-- </div> 
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination white"></div>
+    <button mat-mini-fab  class="swiper-button-prev swipe-arrow"><mat-icon >keyboard_arrow_left</mat-icon></button>
+    <button mat-mini-fab  class="swiper-button-next swipe-arrow"><mat-icon>keyboard_arrow_right</mat-icon></button>
+  </div> --> 
+  <ngb-carousel *ngIf="slides">
+    <ng-template ngbSlide *ngFor="let slide of slides">
+      <div class="picsum-img-wrapper" style="height: 50vh; width:100%" >
+        <!-- <img [src]="slide.imagePath" alt="Random second slide" class="slider_Img"> -->
+        <img [src]="slide.imagePath" alt="Random second slide" class="slider_Img">
+
+      </div>
+      <div class="carousel-caption">
+        <h3 >{{slide.sliderTranslations[0].title}}</h3>
+        <p >{{slide.sliderTranslations[0].subTitle}}</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+
+      <div class="loader" *ngIf="slides.length===0" style=" width:100%" >
+       <div class="ball"></div>
+       <div class="ball"></div>
+       <div class="ball"></div>
+      
+      </div>
+
+      
+<!-- </div> -->

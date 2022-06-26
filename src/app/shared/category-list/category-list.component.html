@@ -1,0 +1,17 @@
+
+    <span class="example-list-section">
+        <ul>
+          <li *ngFor="let category of categories">
+            <mat-checkbox 
+            color="primary"
+                         [value]="category.value"
+                          >
+              {{category.name}}
+            </mat-checkbox>
+          </li>
+        </ul>
+      </span>
+    <!-- <button mat-menu-item (click)="changeCategory(category.id)">
+        <span>{{category.name}}</span>
+    </button> -->
+    <!-- <app-category-list [categories]="categories" [categoryParentId]="category.id" (change)="changeCategory($event)"></app-category-list> -->

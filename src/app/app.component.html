@@ -1,0 +1,24 @@
+<!-- <ngx-loading-bar [includeSpinner]="false" ref="router" color="#f50b0b" height="5px"></ngx-loading-bar>
+<ngx-loading-bar [includeBar]="false" ref="spinner" color="#f50b0b" ></ngx-loading-bar> -->
+<div id="app" class="h-100 app" [ngClass]="settings.theme" [dir]="(settings.rtl) ? 'rtl' : 'ltr'"> 
+    <aside class="aside-class"  [ngStyle]="{'width':sideNavOpened?'40%':'35px'}"
+     (mouseover)="sideNavOpened=true;" (mouseleave)="sideNavOpened=false">
+             <div class="adds-Skeletons" *ngIf="loadAds===true" >
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="adds-Container" *ngIf="ADs.length>0">
+                <div *ngFor="let ad of ADs"[ngStyle]="{'background-image': 'url(' + ad.imagePath + ')'}" 
+                [routerLink]="['/products/product', ad.id]" class="hover-ad" ></div>
+               
+            </div>
+            <div *ngIf="ADs.length===0&&loadAds===false">
+                Sorry, no Ads available.
+            </div>
+            </aside>
+    <router-outlet style="grid-template-areas: bo;"></router-outlet> 
+  
+        <!-- <ngx-spinner bdColor="rgba(51,51,51,0.7)" size="large" color="#fff" type="ball-clip-rotate"></ngx-spinner>      -->
+</div>

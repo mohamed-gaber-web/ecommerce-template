@@ -1,0 +1,25 @@
+<mat-spinner *ngIf='isLoading && !allAddressByUser'></mat-spinner>
+
+<mat-tab-group *ngIf='allAddressByUser'>
+  <mat-tab label="Address">    
+
+    <h1 *ngIf='allAddressByUser.length <= 0' class="no-address"> No Address Please Add Address! </h1>
+
+    <div *ngIf='allAddressByUser'>
+      <mat-card  *ngFor='let addr of allAddressByUser'>
+        
+        <mat-card-title> <button mat-button color='warn' (click)="onRemoveAddress(addr.id)"> Remove </button>
+          <button mat-button color='primary' (click)="openDialog(addr)"> Edit </button>  {{  addr.streetName + ' floor ' + addr.floorNumber + ', apt '  + addr.apartmentNumber + ' , ' + addr.area + ', ' + addr.cityName }} </mat-card-title>
+        <!-- <mat-card-footer> 
+          <button mat-button color='warn' (click)="onRemoveAddress(addr.id)"> Remove </button>
+          <button mat-button color='primary' (click)="openDialog(addr)"> Edit </button>  
+        </mat-card-footer> -->
+      </mat-card>
+    </div>    
+  </mat-tab>
+
+    <mat-tab label="Add Address" >
+      <app-form-address></app-form-address>
+    </mat-tab>
+
+</mat-tab-group>

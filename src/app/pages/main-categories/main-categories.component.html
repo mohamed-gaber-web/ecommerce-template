@@ -1,0 +1,74 @@
+<!-- <div class="main-categories">
+    <div class="sub-main-categories">
+        <div class="smart-homes">
+            <span (click)="smartHome=!smartHome" [ngStyle]="{'font-weight':!smartHome?'400':'600'}">Smart Home</span>
+            <ul [hidden]="smartHome==false" class="sub" >
+                <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">control</a></li>
+                <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">interfaces</a></li>
+                <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">safety and security</a></li>
+                <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}"> central managing units</a></li>
+            </ul>
+        </div>    
+        <div class="smart-homes">
+            <span (click)="AV=!AV" [ngStyle]="{'font-weight':!AV?'400':'600'}">AV Connectivity</span>
+            <ul [hidden]="AV==false" >
+                <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">4k HDML cables</a></li>
+                <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">8k HDML cables</a></li>
+                <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">HDML switchers</a></li>
+                <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}"> HDML extenders</a></li>
+                <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">AV matrix</a></li>
+            </ul>
+        </div> 
+        <div class="smart-homes">
+            <span (click)="TV_Lifts=!TV_Lifts" [ngStyle]="{'font-weight':!TV_Lifts?'400':'600'}">TV lift's</span>
+            <ul [hidden]="TV_Lifts==false" >
+                <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">pop up TV lifts</a></li>
+                <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">pop up & rotate TV lifts</a></li>
+                <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">drop down TV lifts</a></li>
+                <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">flip down TV lifts</a></li>
+                <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">wall mounted TV lifts</a></li>
+            </ul>
+        </div> 
+        <div class="smart-homes">
+            <span (click)="specialTVs=!specialTVs" [ngStyle]="{'font-weight':!specialTVs?'400':'600'}"> Special TV's</span>
+            <ul [hidden]="specialTVs==false" >
+                <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">bathroom TV's</a></li>
+                <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">outdoor TV's</a></li>
+                      </ul>
+        </div> 
+        <div class="smart-homes">
+            <span (click)="motorizedGates=!motorizedGates" [ngStyle]="{'font-weight':!motorizedGates?'400':'600'}"> Motorized Gates</span>
+            <ul [hidden]="motorizedGates==false" >
+                <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">bathroom TV's</a></li>
+                <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">outdoor TV's</a></li>
+                      </ul>
+        </div> 
+
+        <div class="smart-homes">
+            <span (click)="motorizedGates=!motorizedGates" [ngStyle]="{'font-weight':!motorizedGates?'400':'600'}"> Smart locks</span>
+        </div> 
+
+        <div class="smart-homes">
+            <span (click)="motorizedGates=!motorizedGates" [ngStyle]="{'font-weight':!motorizedGates?'400':'600'}"> Smart doorbell</span>
+        </div> 
+    </div>
+</div> -->
+
+
+<app-main-carousel [slides]="slides"></app-main-carousel>
+<div class="categories-spans" >
+    <div *ngFor="let cat of children" (click)="exploreCategory(cat.id)"> 
+        <img [src]="cat.imagePath" [alt]="cat.productCategoryTranslations[0].name">
+        <p>{{cat.productCategoryTranslations[0].name}}</p>
+    </div>
+</div>
+<div class="categories-carousels">
+    <div class="category-carousel" *ngFor="let cat of children" >
+        <div class="category-info" >
+            <p>{{cat.productCategoryTranslations[0].name}}</p>
+            <button  (click)="exploreCategory(cat.id)">Explore More</button>
+        </div>
+        <app-products-carousel [loading]="isLoading"   [products]="cat.products">
+        </app-products-carousel>
+    </div>
+</div>

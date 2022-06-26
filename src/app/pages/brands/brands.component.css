@@ -1,0 +1,65 @@
+.letters {
+  display: inline-block !important;
+  white-space: unset !important;
+  background: #fff;
+}
+
+.letter {
+  display: inline-block !important;
+}
+
+.brand-search.mat-form-field {
+  text-align: center;
+}
+
+.brands-container {
+  -webkit-column-count: 1;
+          column-count: 1;
+  -webkit-column-gap: 16px;
+          column-gap: 16px;
+  margin-top: 30px;
+}
+
+.brands-container .brand-block {
+  display: block;
+}
+
+.brands-container .brand-block .brand {
+  background-color: #fff;
+  padding: 16px;
+  display: inline-block;
+  margin: 8px 0;
+}
+
+.brands-container .brand-block .brand img {
+  max-width: 100%;
+}
+
+@media only screen and (min-width: 320px) {
+  .brands-container {
+    -webkit-column-count: 2;
+    column-count: 2;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .brands-container {
+    -webkit-column-count: 3;
+    column-count: 3;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .brands-container {
+    -webkit-column-count: 4;
+    column-count: 4;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .brands-container {
+    -webkit-column-count: 5;
+    column-count: 5;
+  }
+}
+/*# sourceMappingURL=brands.component.css.map */

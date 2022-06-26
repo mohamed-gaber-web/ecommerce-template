@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,iBAAiB,CAAA;EACb,OAAO,EAAE,gBAAgB;CAI5B;;AALD,AAEI,iBAFa,CAEb,aAAa,CAAA;EACT,UAAU,EAAE,MAAM;CACrB;;AAEL,AAAA,mBAAmB,AAAA,uBAAuB;AAC1C,mBAAmB,AAAA,uBAAuB,CAAA;EACtC,cAAc,EAAE,IAAI;CACvB",
+    "sources": [
+        "products-carousel.component.scss"
+    ],
+    "names": [],
+    "file": "products-carousel.component.css"
+}

@@ -1,0 +1,75 @@
+.aside-class{
+    position: fixed;
+    height: 100vh;
+    width: 35px;
+    background-color:rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    right: 0;
+    color: white;
+    display: grid;
+    gap: 2vh;
+    border: 1px solid black;
+    transition: all ease-in-out 1.5s;
+}
+
+// .aside-class::before{
+//     content: 'ADs';
+//     position: absolute;
+// }
+
+.adds-Skeletons{
+    margin: auto;
+    height: 90%;
+    display: grid;
+    grid-template-rows: repeat(4,1fr);
+    row-gap: 1vh;
+    background-color: transparent;
+    width: 100%;
+}
+
+.adds-Skeletons div{
+    height: 100%;
+    width:80%;
+    margin: auto;
+    background: #eee;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    border-radius: 5px;
+    background-size: 200% 100%;
+    object-fit:cover;
+    background-repeat: no-repeat;
+    animation: 1.5s shine linear infinite;
+  
+
+}
+
+.adds-Container{
+    margin: auto;
+    height: 90%;
+    display: grid;
+    grid-template-rows: repeat(4,1fr);
+    row-gap: 1vh;
+    background-color: transparent;
+    width: 100%;
+}
+.adds-Container div{
+    cursor: pointer;
+    height: 100%;
+    width:80%;
+    margin: auto;
+    border-radius: 5px;
+    background-size:  100%;
+    object-fit:cover;
+    background-repeat: no-repeat;
+
+}
+@keyframes shine {
+    to {
+      background-position-x: -200%;
+    }
+  }
+  .hover-ad{
+    transition: all ease-in-out 0.7s;
+  }
+  .hover-ad:hover{
+    transform: scale(1.1);
+  }

@@ -1,0 +1,43 @@
+
+<div class="mat-table orders-table">
+    <div class="mat-header-row">
+      <div class="mat-header-cell mat-Display">Order Id</div>
+      <div class="mat-header-cell mat-Display">Date</div>
+      <div class="mat-header-cell mat-Display">Status</div>
+      <div class="mat-header-cell mat-Display">Total</div>
+      <div class="mat-header-cell mat-Display">Return</div>
+    </div>
+
+    <mat-spinner *ngIf='isLoading && !orders'></mat-spinner>
+      <div *ngIf="orders.length===0" class="no_Orders">
+        No Orders Yet   <a routerLink="/">Shop here</a>
+      </div>
+    <div *ngFor="let order of orders" class="mat-row">
+      <div class="mat-cell mat-Display"><span class="order">{{order.id}}</span></div>
+      <div class="mat-cell mat-Display">{{order.creationDate}}</div>
+      <div class="mat-cell mat-Display">{{order.generalStatusName}}</div>
+      <div class="mat-cell mat-Display">${{order.totalAmount}}</div>     
+      <div class="mat-cell mat-Display">
+        <div class="p-1 actions">          
+          <button (click)="openDialog(order.id)" mat-mini-fab color="primary" matTooltip="View">
+              <mat-icon>remove_red_eye</mat-icon>
+          </button>
+          <button *ngIf="order.generalStatusName === 'Done'" style="margin-left: 5px" (click)="openRefundForm(order.id)"  mat-raised-button color="warn" matTooltip="Refund">
+              Refund
+          </button>
+          <div>
+              Remaining for returns <b> {{ d }}</b> day
+              <!-- <countdown [config]="{leftTime: d}" (status)="onTimerFinished($event)"></countdown> -->
+          </div>
+        </div>
+      </div>      
+    </div>
+  </div>
+
+
+<mat-paginator 
+      [length]="totalOrders"
+      [pageSize]="orderPerPage"
+      [pageSizeOptions]="pageOption"
+      (page)="onPageChanged($event)">
+</mat-paginator>
