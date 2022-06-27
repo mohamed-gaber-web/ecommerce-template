@@ -24,7 +24,7 @@ export class ControlsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.cartListStorage = JSON.parse(localStorage.getItem('cartList'));
+    localStorage.setItem('cartList', JSON.stringify([]));
     if(this.product){
       if(this.product.cartCount > 0){
         this.count = this.product.cartCount;

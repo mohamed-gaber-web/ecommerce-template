@@ -1,7 +1,7 @@
 <div fxLayout="row wrap">
 
   <div fxFlex="100" fxFlex.gt-md="35" fxFlex.md="45">
-    <span  class="m-2 text-muted fw-500">Brand : <strong style="color:#007bff; cursor: pointer;">TV Max</strong></span>  
+    <span  class="m-2 text-muted fw-500">Brand : <strong style="color:#144566; cursor: pointer;">TV Max</strong></span>  
 
         <mat-card class="product-image" >
             <mat-chip-list *ngIf="product?.discount">
@@ -46,7 +46,7 @@
         <div class="py-1 lh">
             <p class=" text-muted lh fw-500 w-100">Main Cateogry : <span style="color: black; font-weight:400;"> {{product?.mainCategoryName}} </span> </p>
             <p class="category"><span class="text-muted fw-500">Sub Category : </span><a class="sub-cat" [routerLink]="['/products/products-category/', product.productCategoryId]" routerLinkActive="router-link-active" > <span>{{ product.productCategory  }}</span> </a> </p>
-            <p><span class="text-muted fw-500">Quantity : </span><span class='stock'>{{ (product?.quantity > 0) ? 'In stock':'Out Of Stock'}}</span></p>
+            <p><span class="text-muted fw-500">Quantity : </span><span class='stock'>{{ (product?.quantity > 0) ? 'In Stock':'Out Of Stock'}}</span></p>
             
         </div>  
          <!-- <div class="py-1">
