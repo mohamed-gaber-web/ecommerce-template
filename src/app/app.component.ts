@@ -29,7 +29,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.getAds();
+        // this.getAds();
    // this.router.navigate(['']);  //redirect other pages to homepage on browser refresh 
   }
 
@@ -41,12 +41,12 @@ export class AppComponent {
     })  
   }
 
-  public getAds():void{
-    this.loadAds=true;
-    this.productsServ.getProductsAds(4).subscribe((ad)=>{
-      this.ADs=ad;
-      this.loadAds=false;
-    })
-  }
+  // public getAds():void{
+  //   this.loadAds=true;
+  //   this.productsServ.getProductsAds(4).subscribe((ad)=>{
+  //     this.ADs=ad;
+  //     this.loadAds=false;
+  //   })
+  // }
   
 }

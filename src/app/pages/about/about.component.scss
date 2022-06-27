@@ -2,7 +2,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .about-head{
-    background-color: teal;
+    background-color: #144566;
     color: white;
     height: 20vh;
     width: 100%;
@@ -47,10 +47,13 @@
     width: 35%;
 
 }
-
+h6{
+    color: #144566;
+}
 
 .about-body-div>h3{
     margin-top: 4vh;
+    color: #144566;
 }
 .about-body-div{
     display: flex;

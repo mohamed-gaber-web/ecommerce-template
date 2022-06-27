@@ -76,6 +76,7 @@ a{
     height: 14px;
     width: 14px;
     vertical-align: middle;
+    color: darkslateblue !important;
 }
 .mat-icon-button .mat-icon.mat-icon-sm,
 .mat-icon.mat-icon-sm,
@@ -85,6 +86,7 @@ a{
     height: 18px;
     width: 18px;
     vertical-align: middle;
+    color: darkslateblue !important;
 }
 .mat-icon-button .mat-icon.mat-icon-lg,
 .mat-icon.mat-icon-lg{
@@ -93,6 +95,7 @@ a{
     height: 36px;
     width: 36px;
     vertical-align: middle;
+    color: darkslateblue !important;
 }
 .mat-icon-button .mat-icon.mat-icon-xlg,
 .mat-icon.mat-icon-xlg{
@@ -101,6 +104,8 @@ a{
     height: 48px;
     width: 48px;
     vertical-align: middle;
+    color: darkslateblue !important;
+
 }
 .mat-icon.caret{
     width: 14px;
@@ -257,10 +262,10 @@ a{
     }
 }
 .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
-    background-color: transparent !important;
-    color:green;
+    background-color: darkred !important;
+    color:darkred;
     +.mat-step-label{
-      color:green !important;
+      color:darkred !important;
     }
   }
 

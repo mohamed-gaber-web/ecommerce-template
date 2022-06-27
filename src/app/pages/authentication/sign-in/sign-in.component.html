@@ -17,7 +17,7 @@
                     <mat-error *ngIf="loginFormErrors.Password">{{loginFormErrors.Password}}</mat-error>
                 </mat-form-field>
                 <div class="text-center mt-2">
-                    <button mat-fab color="primary" class="mat-elevation-z6"
+                    <button mat-fab style="background-color: navy; color:white;" class="mat-elevation-z6"
                         (click)="onLoginFormSubmit(loginForm.value)" [disabled]="isLoading || !loginForm.valid"     >
                         <mat-icon>exit_to_app</mat-icon>
                     </button>
