@@ -125,6 +125,7 @@ color:#144566;
     display: flex;
     flex-direction: column;
 }
+
 .arrowSpan{
     font-size:x-large ;
     font-weight:100;
@@ -157,6 +158,8 @@ color:#144566;
 .subMenuItem>ul>li{
     width: 100%;
     display: flex;
+    height: fit-content;
+    flex-flow: column;
     justify-content: center;
     border-bottom: 2px solid black;
 }
@@ -251,4 +254,25 @@ span{
 .toggleMenu{
     width:50%;
     justify-content: flex-end;
+}
+.subSmart li ul{
+    list-style: none;
+    text-align: center;
+    background-color: rgb(202, 199, 199);
+    width: 100%;
+    display: none;
+    transition: all ease-in-out 0.4s;
+}
+
+.subSmart li ul li a{
+    color: #144566;
+    font-size: smaller;
+    font-weight: 200;
+}
+.subSmart li a{
+overflow: hidden;
+}
+.subSmart li >a:hover~ ul {
+    display: flex;
+  flex-flow: column;
 }
