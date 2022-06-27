@@ -121,7 +121,8 @@
                 </a>
                 <mat-menu #sortMenu="matMenu" xPosition="before" class="app-dropdown" overlapTrigger="true" >
                     <span (mouseleave)="sortMenuTrigger.closeMenu()" >
-                        <button mat-menu-item *ngFor="let sort of sortings" (click)="changeSorting(sort)"  [disabled]="sort===sortName">
+                        <button mat-menu-item *ngFor="let sort of sortings" (click)="changeSorting(sort)"
+                        [ngClass]="sort===sortName ? 'btn-selected' : ''" [disabled]="sort===sortName" >
                             <span>{{sort}}</span>
                         </button>
                     </span>
@@ -154,7 +155,7 @@
 
         </div> -->
 
-            <span class="searchInput" *ngIf="searchInput !== ' ' " >Results for  <p> '{{ searchInput}} '</p></span>  
+            <span class="searchInput" *ngIf="searchInput !== '' " >Results for  <p> '{{ searchInput}} '</p></span>  
           <mat-spinner *ngIf="isLoading===true"></mat-spinner>
             <div class="no-products" *ngIf="products.length===0 && isLoading===false ">There is no matching for : <span>'{{searchInput}}'</span> </div>
       <div *ngIf="viewType == 'grid' " fxLayout="row wrap" class="products-wrapper" [ngClass]="isLoading?'blur':'un-blur'">

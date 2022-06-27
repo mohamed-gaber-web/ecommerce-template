@@ -4,5 +4,15 @@
 //     font-size: 20px;
 // }
 .teal{
-    color: teal;
+    color: #144566;
+}
+.sbmt-btn{
+    width: 10vw;
+    height: 6vh;
+     background-color: #144566;
+      color: #fff;
+      transition: all ease-in-out 0.3s;
+}
+.sbmt-btn:hover{
+    opacity: 0.7;
 }

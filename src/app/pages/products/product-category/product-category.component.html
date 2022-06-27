@@ -94,7 +94,8 @@
                 </a>
                 <mat-menu #sortMenu="matMenu" xPosition="before" class="app-dropdown" overlapTrigger="true">
                     <span (mouseleave)="sortMenuTrigger.closeMenu()">
-                        <button mat-menu-item *ngFor="let sort of sortings" (click)="changeSorting(sort)"  [disabled]="sort===sortName">
+                        <button mat-menu-item *ngFor="let sort of sortings" (click)="changeSorting(sort)"
+                        [disabled]="sort===sortName">
                             <span>{{sort}}</span>
                         </button>
                     </span>

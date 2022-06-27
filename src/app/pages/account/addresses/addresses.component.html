@@ -8,8 +8,8 @@
     <div *ngIf='allAddressByUser'>
       <mat-card  *ngFor='let addr of allAddressByUser'>
         
-        <mat-card-title> <button mat-button color='warn' (click)="onRemoveAddress(addr.id)"> Remove </button>
-          <button mat-button color='primary' (click)="openDialog(addr)"> Edit </button>  {{  addr.streetName + ' floor ' + addr.floorNumber + ', apt '  + addr.apartmentNumber + ' , ' + addr.area + ', ' + addr.cityName }} </mat-card-title>
+        <mat-card-title> <button mat-button style="color:darkred;" (click)="onRemoveAddress(addr.id)"> Remove </button>
+          <button mat-button style="color:#144566;" (click)="openDialog(addr)"> Edit </button>  {{  addr.streetName + ' floor ' + addr.floorNumber + ', apt '  + addr.apartmentNumber + ' , ' + addr.area + ', ' + addr.cityName }} </mat-card-title>
         <!-- <mat-card-footer> 
           <button mat-button color='warn' (click)="onRemoveAddress(addr.id)"> Remove </button>
           <button mat-button color='primary' (click)="openDialog(addr)"> Edit </button>  

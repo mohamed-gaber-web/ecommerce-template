@@ -85,7 +85,7 @@ export class ProductCategoryComponent implements OnInit, OnDestroy {
 
     this.getAllCategories(); // get all category
     this.getAllBrands(); // get all brands
-    this.getAllProductsOfCategory(); // get all products from category
+    this.getAllProductsOfCategory(true); // get all products from category
 
     this.count = this.counts[0];
     this.sort = this.sortings[0];
@@ -107,12 +107,11 @@ export class ProductCategoryComponent implements OnInit, OnDestroy {
 
   public changeCount(count){
     this.count = count;
-    this.getAllProductsOfCategory();
+    this.getAllProductsOfCategory(true);
   }
 
  
   public changeSorting(sort){
-    
     this.router.navigate(['/products/products-category/'+this.catID+'/'+sort])
   }
 
@@ -136,14 +135,16 @@ export class ProductCategoryComponent implements OnInit, OnDestroy {
 
 
   // get all products of category
-  getAllProductsOfCategory() {
+  getAllProductsOfCategory(ascend:boolean) {
     this.uiService.showLoadingBar();
     this.isLoading = true;
+    if(ascend===true){
     this.sub.push(
       this.route.paramMap.pipe(
         switchMap((params: ParamMap) => {
           this.catID=params.get('catId');
-          return this.productsService.getProductByCategory(+params.get('catId'), this.currentPageItem, this.itemsPerPage)
+          return this.productsService.getProductByCategory(+params.get('catId'), this.currentPageItem,
+           this.itemsPerPage)
         })
       ).subscribe(response => {
         this.uiService.hideLoadingBar();
@@ -154,7 +155,25 @@ export class ProductCategoryComponent implements OnInit, OnDestroy {
         
        this.totalOrders = response['length'];
       })
-    );
+    );}
+    else if(ascend===false){
+      this.sub.push(
+        this.route.paramMap.pipe(
+          switchMap((params: ParamMap) => {
+            this.catID=params.get('catId');
+            return this.productsService.getProductByCategoryDescending(+params.get('catId'), this.currentPageItem,
+             this.itemsPerPage)
+          })
+        ).subscribe(response => {
+          this.uiService.hideLoadingBar();
+          this.isLoading = false;
+          this.selectedCategory=response['result'][1].productCategory;
+         this.productsOfCategory = response['result'];
+         this.filterProductsByCategory = this.productsOfCategory;
+          
+         this.totalOrders = response['length'];
+        })
+      );}
   
   }
 
@@ -204,7 +223,7 @@ export class ProductCategoryComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     this.currentPageItem = pageData.pageIndex;
     this.itemsPerPage = pageData.pageSize;
-    this.getAllProductsOfCategory(); // get all products from category
+    this.getAllProductsOfCategory(true); // get all products from category
   }
 
   onChangePrice() {
@@ -225,49 +244,29 @@ export class ProductCategoryComponent implements OnInit, OnDestroy {
   }
   public onReset(){
     this.uiService.showLoadingBar();
-    this.getAllProductsOfCategory();
+    this.getAllProductsOfCategory(true);
   }
 
-  ngOnDestroy(): void {
-    this.sub.forEach(ele => {
-      ele.unsubscribe();
-    })
-  }
+
   public checkSorting(s:string){
  
-     if(s==="Sort-by-default" ||s==="" ||!s ){
-this.getAllProductsOfCategory();
+     if(s==="Sort By Default" ||s==="" ||!s ){
+this.getAllProductsOfCategory(true);
    }
     else if(s==="Lowest first")
     {
-      this.ascend(this.filterProductsByCategory);
+      this.getAllProductsOfCategory(true);
     }
     else if(s==='Highest first'){
-      this.descend(this.filterProductsByCategory)
-    }
+this.getAllProductsOfCategory(false)  }
   }
 
-  public ascend(num:Product[]){
-    let arr= num.sort((a, b) => {
-     if(a.price === b.price) {
-       // If two elements have same number, then the one who has larger rating.average wins
-       return b.price- a.price;
-     } else {
-       // If two elements have different number, then the one who has larger number wins
-       return a.price - b.price;
-     }
-   });
-   }
-   public descend(num:Product[]){
-     let arr= num.sort((a, b) => {
-      if(a.price === b.price) {
-        // If two elements have same number, then the one who has larger rating.average wins
-        return a.price- b.price;
-      } else {
-        // If two elements have different number, then the one who has larger number wins
-        return b.price - a.price;
-      }
-    });
-    }
  
+
+
+    ngOnDestroy(): void {
+      this.sub.forEach(ele => {
+        ele.unsubscribe();
+      })
+    }
 }

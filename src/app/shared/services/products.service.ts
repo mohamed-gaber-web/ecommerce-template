@@ -46,6 +46,10 @@ export class ProductsService {
         return this.http.get<Product>(`${getProductByCategory}` + params);
     }
 
+getProductByCategoryDescending(catId: number, currentPage: number, orderPerPage: number) {
+        const params = `?Offset=${currentPage}&limit=${orderPerPage}&categoryId=${catId}&&Isdesc=true`;
+        return this.http.get<Product>(`${getProductByCategory}` + params);
+    }
     getProductBySubCategory(catId: number) {
         // const params = `?Offset=${currentPage}&limit=${orderPerPage}&categoryId=${catId}`;
         return this.http.get<Product>(`${getSubCatogiresProducts}`+`?id=${catId}`);

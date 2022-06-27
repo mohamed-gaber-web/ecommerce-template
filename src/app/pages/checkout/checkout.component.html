@@ -5,7 +5,7 @@
       <mat-radio-group formControlName="address" fxLayout="column" fxLayoutAlign="center" required name="address">
         <mat-radio-button (change)="fillAddress(addr)" *ngFor="let addr of addressList" color="primary" [value]="addr" class="mt-1"><b> 
           {{ addr.streetName + ' floor ' + addr.floorNumber + ', apt '  + addr.apartmentNumber + ' , ' + addr.area + ', ' + addr.cityName}} </b>  
-          <button mat-stroked-button color="warn" (click)="removeAddress(addr.id)"> Remove </button> </mat-radio-button>
+          <button mat-stroked-button style="color:darkred" (click)="removeAddress(addr.id)"> Remove </button> </mat-radio-button>
         <!-- <mat-error *ngIf="addressForm.controls.address.errors?.required">address is required</mat-error> -->
       </mat-radio-group>
     </form>

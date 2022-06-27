@@ -14,10 +14,10 @@
                 <div class="smart-homes">
                     <span (click)="smartHome=!smartHome"  [ngStyle]="{'font-weight':!smartHome?'400':'600'}">Smart Home</span>
                     <ul [hidden]="smartHome==false" class="sub">
-                        <li><a routerLink="/products/products-category/{{categories[12].id}}/Sort By Default" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">control</a></li>
-                        <li><a routerLink="/products/products-category/{{categories[13].id}}/Sort By Default" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">interfaces</a></li>
-                        <li><a routerLink="/products/products-category/{{categories[14].id}}/Sort By Default" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">safety and security</a></li>
-                        <li><a routerLink="/products/products-category/{{categories[15].id}}/Sort By Default" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}"> central managing units</a></li>
+                        <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">control</a></li>
+                        <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">interfaces</a></li>
+                        <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}">safety and security</a></li>
+                        <li><a routerLink="/" routerLinkActive="horizontal-active-link" [routerLinkActiveOptions]="{exact:true}"> central managing units</a></li>
                     </ul>
                 </div>    
                 <div class="smart-homes">
@@ -115,7 +115,7 @@
                                       </a>
     
                                 <ul  class="subSmart">
-                                    <li ><a  routerLink="/products/products-category/{{categories[12].id}}/Sort By Default">Control</a></li>
+                                    <li><a  routerLink="/products/products-category/{{categories[12].id}}/Sort By Default">Control</a></li>
                                     <li><a  routerLink="/products/products-category/{{categories[13].id}}/Sort By Default">interfaces</a></li>
                                     <li><a  routerLink="/products/products-category/{{categories[14].id}}/Sort By Default">Safety and Security</a></li>
                                     <li><a  routerLink="/products/products-category/{{categories[15].id}}/Sort By Default">Central managing units</a></li>

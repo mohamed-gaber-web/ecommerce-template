@@ -99,9 +99,11 @@ export class ProductsComponent implements OnInit {
     this.sub.push(
       this.activatedRoute.queryParams.subscribe(s=>{
           this.searchInput=s['q'];
-          if(s['q']==="" || !s['q'])
+          if(s['q']==="" || !s['q'] || s['q']===" ")
 
-          {this.getEveryProduct();}
+          {
+            this.searchInput="All"
+            this.getEveryProduct();}
 
           else {
           this.getAllProducts(s['q']);}
@@ -124,12 +126,10 @@ export class ProductsComponent implements OnInit {
   
 
   private getAllProducts(s:string){
-    
     this.isLoading=true;
     this.sub.push(
     this.productService.getProductBySearch(s).subscribe(response => {
       this.products=response['result'];
-      // this.checkSorting()
        this.cats = this.getSubCategories(response['result']);
       this.isLoading=false;
     }))
@@ -182,6 +182,9 @@ this.getAllProducts(s['q']);
     else if(s==='Highest first'){
       this.descend(this.products)
     }
+    else{
+      this.getAllProducts(s['q']);
+    }
   }
 
  
@@ -216,11 +219,10 @@ this.getAllProducts(s['q']);
 
   public changeCount(count){
     this.count = count;
-    this.getAllProducts(this.searchInput); 
+    // this.getAllProducts(this.searchInput); 
   }
 
   public changeSorting(sort){
-    // this.sort = sort;
     let navigationExtras: NavigationExtras = {
       queryParams: { q : this.searchInput }
     };
